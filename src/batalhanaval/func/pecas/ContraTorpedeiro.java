@@ -49,8 +49,8 @@ public class ContraTorpedeiro {
     }
     
     private void initVetor() {
-        posicoesCT[0] = Integer.toString(posX1) +"_"+ Integer.toString(posY1)+"/";
-        posicoesCT[1] = Integer.toString(posX2) +"_"+ Integer.toString(posY2)+"/";
+        posicoesCT[0] = Integer.toString(posX1) +"_"+ Integer.toString(posY1);
+        posicoesCT[1] = Integer.toString(posX2) +"_"+ Integer.toString(posY2);
         posicoesCT[2] = Integer.toString(posX3) +"_"+ Integer.toString(posY3); 
         for(int i = 3; i < posicoesCT.length; i ++){
             posicoesCT[i] = "";

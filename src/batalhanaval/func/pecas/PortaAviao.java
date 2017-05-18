@@ -63,10 +63,10 @@ public class PortaAviao {
     }
     
     private void initVetor() {
-        posicoesPT[0] = Integer.toString(posX1) +"_"+ Integer.toString(posY1)+"/";
-        posicoesPT[1] = Integer.toString(posX2) +"_"+ Integer.toString(posY2)+"/";
-        posicoesPT[2] = Integer.toString(posX3) +"_"+ Integer.toString(posY3)+"/";
-        posicoesPT[3] = Integer.toString(posX4) +"_"+ Integer.toString(posY4)+"/";
+        posicoesPT[0] = Integer.toString(posX1) +"_"+ Integer.toString(posY1);
+        posicoesPT[1] = Integer.toString(posX2) +"_"+ Integer.toString(posY2);
+        posicoesPT[2] = Integer.toString(posX3) +"_"+ Integer.toString(posY3);
+        posicoesPT[3] = Integer.toString(posX4) +"_"+ Integer.toString(posY4);
         posicoesPT[4] = Integer.toString(posX5) +"_"+ Integer.toString(posY5);
 //        Arrays.fill(posicoesPT, "");
     }

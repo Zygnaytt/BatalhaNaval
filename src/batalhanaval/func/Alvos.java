@@ -55,7 +55,37 @@ public class Alvos {
     }
     
     public boolean igual(String posi){
-        String posicao;
-        return true;
+        for(String[] strV: matrizJogador){
+            for(String str : strV){
+                if(posi.equals(str)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    public String getFullPeca(String posicao){
+        for(String str : matrizJogador[0]){
+            if(posicao.equals(str)){
+                return "submarino";
+            }                
+        }
+        for(String str : matrizJogador[1]){
+            if(posicao.equals(str)){
+                return "contratorpedeiro";
+            }                
+        }
+        for(String str : matrizJogador[2]){
+            if(posicao.equals(str)){
+                return "naviotanque";
+            }                
+        }
+        for(String str : matrizJogador[3]){
+            if(posicao.equals(str)){
+                return "portaaviao";
+            }                
+        }
+        return "nada";
     }
 }

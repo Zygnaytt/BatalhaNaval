@@ -57,9 +57,9 @@ public class NavioTanque {
     }
     
     private void initVetor() {
-        posicoesNT[0] = Integer.toString(posX1) +"_"+ Integer.toString(posY1)+"/";
-        posicoesNT[1] = Integer.toString(posX2) +"_"+ Integer.toString(posY2)+"/";
-        posicoesNT[2] = Integer.toString(posX3) +"_"+ Integer.toString(posY3)+"/";
+        posicoesNT[0] = Integer.toString(posX1) +"_"+ Integer.toString(posY1);
+        posicoesNT[1] = Integer.toString(posX2) +"_"+ Integer.toString(posY2);
+        posicoesNT[2] = Integer.toString(posX3) +"_"+ Integer.toString(posY3);
         posicoesNT[3] = Integer.toString(posX4) +"_"+ Integer.toString(posY4);
         posicoesNT[4] = "";
 //        Arrays.fill(posicoesNT, "");

@@ -15,8 +15,13 @@ public class Botoes implements ActionListener{
         int posicaoX = Integer.parseInt(e.getActionCommand().substring(6, 7));
         int posicaoY = Integer.parseInt(e.getActionCommand().substring(8, 9));
         
-        if(gr.getAcertou(posicaoX, posicaoY))
+        if(gr.getAcertou(posicaoX, posicaoY)){
             button.setBackground(Color.red);
+            System.out.println("acertou");
+        }else{
+            button.setBackground(Color.lightGray);
+            System.out.println("errou");
+        }
         button.setEnabled(false);
     }
 }

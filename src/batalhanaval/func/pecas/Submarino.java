@@ -42,7 +42,7 @@ public class Submarino {
     }
     
     private void initVetor() {
-        posicoesSub[0] = Integer.toString(posX1) +"_"+ Integer.toString(posY1)+"/";
+        posicoesSub[0] = Integer.toString(posX1) +"_"+ Integer.toString(posY1);
         posicoesSub[1] = Integer.toString(posX2) +"_"+ Integer.toString(posY2);
         for(int i = 2; i < posicoesSub.length; i ++){
             posicoesSub[i] = "";
