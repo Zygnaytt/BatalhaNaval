@@ -1,13 +1,14 @@
 
 package batalhanaval.func.pecas;
 
+import java.util.Arrays;
 import java.util.Random;
 
 
 public class NavioTanque {
     private boolean direcao, sentido;
     private int posX1, posY1, posX2, posY2, posX3, posY3, posX4, posY4;
-    private final String[] posicoesNT = new String[4];
+    private final String[] posicoesNT = new String[5];
     
     public NavioTanque(){
         initPecas();
@@ -25,7 +26,8 @@ public class NavioTanque {
         setSentidoDirecao(dir, sen);
         
         if(direcao == true){//vertical
-            if((sentido == true && posY1 != 0) || (posY1 == 9)){//cima
+            if((sentido == true && posY1 != 0) || (posY1 == 9) || (posY2 == 8)
+                    || (posY3 == 7)){//cima
                 posY2 = posY1 - 1;
                 posY3 = posY2 - 1;
                 posY4 = posY3 - 1;
@@ -38,7 +40,8 @@ public class NavioTanque {
             posX3 = posX2;
             posX4 = posX3;
         }else {//horizontal
-            if((sentido == true && posX1 != 0) || (posX1 == 9)){//direita
+            if((sentido == true && posX1 != 0) || (posX1 == 9) || (posX2 == 8)
+                    || (posX3 == 7)){//direita
                 posX2 = posX1 - 1;
                 posX3 = posX2 - 1;
                 posX4 = posX3 - 1;
@@ -54,10 +57,12 @@ public class NavioTanque {
     }
     
     private void initVetor() {
-        posicoesNT[0] = "nt: "+Integer.toString(posX1) +" e "+ Integer.toString(posY1);
-        posicoesNT[1] = "nt: "+Integer.toString(posX2) +" e "+ Integer.toString(posY2);
-        posicoesNT[2] = "nt: "+Integer.toString(posX3) +" e "+ Integer.toString(posY3);
-        posicoesNT[3] = "nt: "+Integer.toString(posX4) +" e "+ Integer.toString(posY4);
+        posicoesNT[0] = Integer.toString(posX1) +"_"+ Integer.toString(posY1)+"/";
+        posicoesNT[1] = Integer.toString(posX2) +"_"+ Integer.toString(posY2)+"/";
+        posicoesNT[2] = Integer.toString(posX3) +"_"+ Integer.toString(posY3)+"/";
+        posicoesNT[3] = Integer.toString(posX4) +"_"+ Integer.toString(posY4);
+        posicoesNT[4] = "";
+//        Arrays.fill(posicoesNT, "");
     }
     
     private void setSentidoDirecao(int dir, int sen){

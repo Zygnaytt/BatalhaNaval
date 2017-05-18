@@ -11,7 +11,7 @@ import javax.swing.*;
  * @author u15185
  */
 public class TelaPrincipal {
-    private final Tabuleiro board = new Tabuleiro();
+    private final Tabuleiro tabuleiro = new Tabuleiro();
     private final int largura = 1300;
     private final int altura = 800;
     private JFrame tela;
@@ -19,7 +19,7 @@ public class TelaPrincipal {
     
     public void initComponents(){
         initTela();
-        tela.add(board.getPainel());
+        tela.add(tabuleiro.getPainel());
         //FINALIZACAO DA INICIALIZACAO
         tela.setVisible(true);
     }

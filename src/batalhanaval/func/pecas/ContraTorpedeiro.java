@@ -1,13 +1,14 @@
 
 package batalhanaval.func.pecas;
 
+import java.util.Arrays;
 import java.util.Random;
 
 
 public class ContraTorpedeiro {
     private boolean direcao, sentido;
     private int posX1, posY1, posX2, posY2, posX3, posY3;
-    private final String[] posicoesCT = new String[3];
+    private final String[] posicoesCT = new String[5];
     
     public ContraTorpedeiro(){
         initPecas();
@@ -25,7 +26,7 @@ public class ContraTorpedeiro {
         setSentidoDirecao(dir, sen);
         
         if(direcao == true){//vertical
-            if((sentido == true && posY1 != 0) || (posY1 == 9)){//cima
+            if((sentido == true && posY1 != 0) || (posY1 == 9) || (posY2 == 8)){//cima
                 posY2 = posY1 - 1;
                 posY3 = posY2 - 1;
             }else{//baixo
@@ -35,7 +36,7 @@ public class ContraTorpedeiro {
             posX2 = posX1;
             posX3 = posX2;
         }else {//horizontal
-            if((sentido == true && posX1 != 0) || (posX1 == 9)){//direita
+            if((sentido == true && posX1 != 0) || (posX1 == 9) || (posX2 == 8)){//direita
                 posX2 = posX1 - 1;
                 posX3 = posX2 -1;
             }else{//esquerda
@@ -48,9 +49,13 @@ public class ContraTorpedeiro {
     }
     
     private void initVetor() {
-        posicoesCT[0] = "ct: "+Integer.toString(posX1) +" e "+ Integer.toString(posY1);
-        posicoesCT[1] = "ct: "+Integer.toString(posX2) +" e "+ Integer.toString(posY2);
-        posicoesCT[2] = "ct: "+Integer.toString(posX3) +" e "+ Integer.toString(posY3);        
+        posicoesCT[0] = Integer.toString(posX1) +"_"+ Integer.toString(posY1)+"/";
+        posicoesCT[1] = Integer.toString(posX2) +"_"+ Integer.toString(posY2)+"/";
+        posicoesCT[2] = Integer.toString(posX3) +"_"+ Integer.toString(posY3); 
+        for(int i = 3; i < posicoesCT.length; i ++){
+            posicoesCT[i] = "";
+        }
+//        Arrays.fill(posicoesCT, "");       
     }
     
     private void setSentidoDirecao(int dir, int sen){

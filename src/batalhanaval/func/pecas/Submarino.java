@@ -1,12 +1,13 @@
 
 package batalhanaval.func.pecas;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Submarino {
     private boolean direcao, sentido;
     private int posX1, posY1, posX2, posY2;
-    private final String[] posicoesSub = new String[2];
+    private final String[] posicoesSub = new String[5];
     
     public Submarino(){
         initPecas();
@@ -41,9 +42,12 @@ public class Submarino {
     }
     
     private void initVetor() {
-        posicoesSub[0] = "sub: "+Integer.toString(posX1) +" e "+ Integer.toString(posY1);
-        posicoesSub[1] = "sub: "+Integer.toString(posX2) +" e "+ Integer.toString(posY2);
-        
+        posicoesSub[0] = Integer.toString(posX1) +"_"+ Integer.toString(posY1)+"/";
+        posicoesSub[1] = Integer.toString(posX2) +"_"+ Integer.toString(posY2);
+        for(int i = 2; i < posicoesSub.length; i ++){
+            posicoesSub[i] = "";
+        }
+//        Arrays.fill(posicoesSub, "");
     }
     
     private void setSentidoDirecao(int dir, int sen){

@@ -17,6 +17,6 @@ public class Botoes implements ActionListener{
         
         if(gr.getAcertou(posicaoX, posicaoY))
             button.setBackground(Color.red);
-            
+        button.setEnabled(false);
     }
 }
