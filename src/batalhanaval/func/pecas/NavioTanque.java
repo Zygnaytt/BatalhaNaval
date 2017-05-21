@@ -1,7 +1,6 @@
 
 package batalhanaval.func.pecas;
 
-import java.util.Arrays;
 import java.util.Random;
 
 
@@ -26,8 +25,9 @@ public class NavioTanque {
         setSentidoDirecao(dir, sen);
         
         if(direcao == true){//vertical
-            if((sentido == true && posY1 != 0) || (posY1 == 9) || (posY2 == 8)
-                    || (posY3 == 7)){//cima
+            if((sentido == true && posY1 != 0) || ((posY1 <= 9)&&(posY1 >= 7))
+                    //|| (posY3 == 7)
+                    ){//cima
                 posY2 = posY1 - 1;
                 posY3 = posY2 - 1;
                 posY4 = posY3 - 1;
@@ -40,8 +40,9 @@ public class NavioTanque {
             posX3 = posX2;
             posX4 = posX3;
         }else {//horizontal
-            if((sentido == true && posX1 != 0) || (posX1 == 9) || (posX2 == 8)
-                    || (posX3 == 7)){//direita
+            if((sentido == true && posX1 != 0) || ((posX1 <= 9)&&(posX1 >= 7))
+                    //|| (posX2 == 8)|| (posX3 == 7)
+                    ){//direita
                 posX2 = posX1 - 1;
                 posX3 = posX2 - 1;
                 posX4 = posX3 - 1;

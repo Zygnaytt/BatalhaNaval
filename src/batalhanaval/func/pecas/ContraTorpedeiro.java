@@ -1,7 +1,6 @@
 
 package batalhanaval.func.pecas;
 
-import java.util.Arrays;
 import java.util.Random;
 
 
@@ -17,6 +16,10 @@ public class ContraTorpedeiro {
     
     private void initPecas(){
         Random aleatorio = new Random();
+        posY2 = 0;
+        posY3 = 0;
+        posX2 = 0;
+        posX3 = 0;
         //init sub1
         //random x random y random horizontal, vertical random esquerda, direita
         posX1 = aleatorio.nextInt(10);
@@ -26,7 +29,9 @@ public class ContraTorpedeiro {
         setSentidoDirecao(dir, sen);
         
         if(direcao == true){//vertical
-            if((sentido == true && posY1 != 0) || (posY1 == 9) || (posY2 == 8)){//cima
+            if((sentido == true && posY1 != 0) || ((posY1 <= 9)&&(posY1 >= 8))
+                    //|| (posY2 == 8)
+                    ){//cima
                 posY2 = posY1 - 1;
                 posY3 = posY2 - 1;
             }else{//baixo
@@ -36,7 +41,9 @@ public class ContraTorpedeiro {
             posX2 = posX1;
             posX3 = posX2;
         }else {//horizontal
-            if((sentido == true && posX1 != 0) || (posX1 == 9) || (posX2 == 8)){//direita
+            if((sentido == true && posX1 != 0) || ((posX1 <= 9)&&(posX1 >= 8))
+                    //|| (posX2 == 8)
+                    ){//direita
                 posX2 = posX1 - 1;
                 posX3 = posX2 -1;
             }else{//esquerda

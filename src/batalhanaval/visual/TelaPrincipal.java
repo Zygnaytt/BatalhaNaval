@@ -13,12 +13,13 @@ import javax.swing.*;
 public class TelaPrincipal {
     private final Tabuleiro tabuleiro = new Tabuleiro();
     private final int largura = 1300;
-    private final int altura = 800;
+    private final int altura = 700;
     private JFrame tela;
     
     
     public void initComponents(){
         initTela();
+        tabuleiro.habilitar(tabuleiro.getQuadradinhos1(), false);
         tela.add(tabuleiro.getPainel());
         //FINALIZACAO DA INICIALIZACAO
         tela.setVisible(true);
@@ -26,7 +27,7 @@ public class TelaPrincipal {
     
     public void initTela(){
         //INICIALIZACAO DA TELA
-        tela = new JFrame("Reversi_PP");
+        tela = new JFrame("Batalha Naval");
         tela.setSize(largura, altura);
         tela.setLocationRelativeTo(null);
         tela.setResizable(false);

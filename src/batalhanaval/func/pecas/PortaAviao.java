@@ -1,7 +1,6 @@
 
 package batalhanaval.func.pecas;
 
-import java.util.Arrays;
 import java.util.Random;
 
 
@@ -26,8 +25,9 @@ public class PortaAviao {
         setSentidoDirecao(dir, sen);
         
         if(direcao == true){//vertical
-            if((sentido == true && posY1 != 0) || (posY1 == 9) || (posY2 == 8)
-                    || (posY3 == 7) || (posY4 == 6)){//cima
+            if((sentido == true && posY1 != 0) || ((posY1 <= 9)&&(posY1 >= 6))
+                    //|| (posY2 == 8)|| (posY3 == 7) || (posY4 == 6)
+                    ){//cima
                 posY2 = posY1 - 1;
                 posY3 = posY2 - 1;
                 posY4 = posY3 - 1;
@@ -43,8 +43,9 @@ public class PortaAviao {
             posX4 = posX3;
             posX5 = posX4;
         }else {//horizontal
-            if((sentido == true && posX1 != 0) || (posX1 == 9) || (posX2 == 8)
-                    || (posX3 == 7) || (posX4 == 6)){//direita
+            if((sentido == true && posX1 != 0) || ((posX1 <= 9)&&(posX1 >= 6))
+                    //|| (posX2 == 8)|| (posX3 == 7) || (posX4 == 6)
+                    ){//direita
                 posX2 = posX1 - 1;
                 posX3 = posX2 - 1;
                 posX4 = posX3 - 1;
@@ -58,7 +59,7 @@ public class PortaAviao {
             posY2 = posY1;
             posY3 = posY2;
             posY4 = posY3;
-            posX5 = posX4;
+            posY5 = posY4;
         }
     }
     

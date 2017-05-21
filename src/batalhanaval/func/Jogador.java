@@ -1,15 +1,29 @@
 package batalhanaval.func;
 
+import batalhanaval.func.pecas.*;
+
 
 public class Jogador {
-    private String[][] posicoes = new String[7][2];
+    Submarino subJogador = new Submarino();
+    ContraTorpedeiro ctJogador = new ContraTorpedeiro();
+    NavioTanque ntJogador = new NavioTanque();
+    PortaAviao ptJogador = new PortaAviao();
     
-    public void initVetor(String[] posSub, String[] posCT, String[] posNavio, String[] posPT){
-        
+    private final String[][] posicoes = new String[4][5];
+    
+    public Jogador(){
+        initMatriz(subJogador.getPosicoes(), ctJogador.getPosicoes(), ntJogador.getPosicoes(), ptJogador.getPosicoes());
+    }
+    
+    public void initMatriz(String[] posSub, String[] posCT, String[] posNavio, String[] posPT){
+        posicoes[0] = posSub;
+        posicoes[1] = posCT;
+        posicoes[2] = posNavio;
+        posicoes[3] = posPT;
     }
 
-    public String getPosicoes() {
-        return toString();
+    public String[][] getPosicoes() {
+        return posicoes;
     }
     
     @Override

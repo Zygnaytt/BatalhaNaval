@@ -1,6 +1,7 @@
 package batalhanaval.visual;
 
 import batalhanaval.func.Botoes;
+import batalhanaval.func.GerenciamentoDoJogo;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Insets;
@@ -20,8 +21,11 @@ public class Tabuleiro {
     private JPanel bnTabuleiro1;
     private JPanel bnTabuleiroIA;
     private static final String COLS = "ABCDEFGHIJ";
+    private final GerenciamentoDoJogo gr = new GerenciamentoDoJogo();
+    private final Botoes btnns = new Botoes();
     
     public Tabuleiro(){
+        btnns.setTabuleiro(this);
         initTabuleiro1();
         initTabuleiroIA();
     }
@@ -31,18 +35,19 @@ public class Tabuleiro {
 	bnTabuleiro1 = new JPanel(new GridLayout(0, 11));
         bnTabuleiro1.setBorder(new LineBorder(Color.BLACK));
        	painel.add(bnTabuleiro1);
-
+        
+        btnns.setGerenciamento(gr);
        	Insets margemDoBotao1 = new Insets(0,0,0,0);
         for(int ii = 0; ii < bnQuadradinhos1.length; ii++){
             for(int jj = 0; jj < bnQuadradinhos1[ii].length; jj++){
                 JButton btn = new JButton();
                 btn.setActionCommand("tab1 V"+jj+"H"+ii+" "+COLS.substring(ii, ii+1));
-                btn.addActionListener(new Botoes());
+                btn.addActionListener(btnns);
                 btn.setMargin(margemDoBotao1);
                 ImageIcon icone = new ImageIcon(new BufferedImage(40, 40, BufferedImage.TYPE_INT_ARGB));
                 btn.setIcon(icone);
-                btn.setBackground(Color.WHITE);   
-                btn.setEnabled(false);
+                btn.setBackground(Color.WHITE);
+                //btn.setEnabled(false);
                 
                 bnQuadradinhos1[jj][ii] = btn;
                 
@@ -74,13 +79,14 @@ public class Tabuleiro {
 	bnTabuleiroIA = new JPanel(new GridLayout(0, 11));
         bnTabuleiroIA.setBorder(new LineBorder(Color.BLACK));
        	painel.add(bnTabuleiroIA);
-
+        
+        btnns.setGerenciamento(gr);
        	Insets margemDoBotao2 = new Insets(0,0,0,0);
         for(int ii = 0; ii < bnQuadradinhosIA.length; ii++){
             for(int jj = 0; jj < bnQuadradinhosIA[ii].length; jj++){
                 JButton btn = new JButton();
                 btn.setActionCommand("tab2 V"+jj+"H"+ii+" "+COLS.substring(ii, ii+1));
-                btn.addActionListener(new Botoes());
+                btn.addActionListener(btnns);
                 btn.setMargin(margemDoBotao2);
                 ImageIcon icone = new ImageIcon(new BufferedImage(40, 40, BufferedImage.TYPE_INT_ARGB));
                 btn.setIcon(icone);
@@ -111,6 +117,15 @@ public class Tabuleiro {
         }
     }
     
+    public void habilitar(JButton[][] matriz, boolean habilitar){
+        for(JButton[] btns : matriz){
+            for(JButton btn : btns){
+                if(!btn.getBackground().equals(Color.lightGray) && !btn.getBackground().equals(Color.red))
+                    btn.setEnabled(habilitar);
+            }
+        }
+    }
+    
     public JComponent getPainel(){
         return painel;
     }
@@ -120,5 +135,12 @@ public class Tabuleiro {
     }
     public JComponent getTabuleiroIA(){
         return bnTabuleiroIA;
+    }
+    
+    public JButton[][] getQuadradinhos1(){
+        return bnQuadradinhos1;
+    }
+    public JButton[][] getQuadradinhos2(){
+        return bnQuadradinhosIA;
     }
 }
