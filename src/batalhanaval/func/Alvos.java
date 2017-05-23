@@ -15,23 +15,14 @@ public class Alvos {
     }
     
     private void posicoesValidas(){
-        for(int i = 0; i < portaviao.getPosicoes().length; i++){
-            if((naviotanque.getPosicoes()[i].equals(portaviao.getPosicoes()[i]))
-                || (contratorpedeiro.getPosicoes()[i].equals(portaviao.getPosicoes()[i])
-                || (submarino.getPosicoes()[i].equals(portaviao.getPosicoes()[i])))){
-                reiniciar();
-            }
+        if(!submarinoValido()){
+            reiniciar();
         }
-        for(int i = 0; i < naviotanque.getPosicoes().length; i++){
-            if((contratorpedeiro.getPosicoes()[i].equals(portaviao.getPosicoes()[i])
-                || (submarino.getPosicoes()[i].equals(portaviao.getPosicoes()[i])))){
-                reiniciar();
-            }
+        if(!contratorpedeiroValido()){
+            reiniciar();
         }
-        for(int i = 0; i < contratorpedeiro.getPosicoes().length; i++){
-            if(((submarino.getPosicoes()[i].equals(portaviao.getPosicoes()[i])))){
-                reiniciar();
-            }
+        if(!naviotanqueValido()){
+            reiniciar();
         }
     }
     
@@ -42,6 +33,50 @@ public class Alvos {
         naviotanque = new NavioTanque();
         portaviao = new PortaAviao();
         posicoesValidas();
+    }
+    
+    private boolean submarinoValido(){
+        for (int i = 0; i < portaviao.getPosicoes().length; i++) {
+            if((submarino.getPosicoes()[0].equals(contratorpedeiro.getPosicoes()[i]))
+            ||(submarino.getPosicoes()[1].equals(contratorpedeiro.getPosicoes()[i]))){
+                return false;
+            }
+            if((submarino.getPosicoes()[0].equals(naviotanque.getPosicoes()[i]))
+            ||(submarino.getPosicoes()[1].equals(naviotanque.getPosicoes()[i]))){
+                return false;
+            }
+            if((submarino.getPosicoes()[0].equals(portaviao.getPosicoes()[i]))
+            ||(submarino.getPosicoes()[1].equals(portaviao.getPosicoes()[i]))){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    private boolean contratorpedeiroValido(){
+        for (int i = 0; i < portaviao.getPosicoes().length; i++) {
+            if((contratorpedeiro.getPosicoes()[0].equals(naviotanque.getPosicoes()[i]))
+            ||(contratorpedeiro.getPosicoes()[1].equals(naviotanque.getPosicoes()[i]))
+            ||(contratorpedeiro.getPosicoes()[2].equals(naviotanque.getPosicoes()[i]))){
+                return false;
+            }
+            if((contratorpedeiro.getPosicoes()[0].equals(portaviao.getPosicoes()[i]))
+            ||(contratorpedeiro.getPosicoes()[1].equals(portaviao.getPosicoes()[i]))
+            ||(contratorpedeiro.getPosicoes()[2].equals(portaviao.getPosicoes()[i]))){
+                return false;
+            }
+        }
+        return true;
+    }
+    private boolean naviotanqueValido(){
+        for (int i = 0; i < portaviao.getPosicoes().length; i++) {
+            if((naviotanque.getPosicoes()[0].equals(portaviao.getPosicoes()[i]))
+            ||(naviotanque.getPosicoes()[1].equals(portaviao.getPosicoes()[i]))
+            ||(naviotanque.getPosicoes()[2].equals(portaviao.getPosicoes()[i]))){
+                return false;
+            }
+        }
+        return true;
     }
     
     private void initMatriz(){
@@ -83,5 +118,15 @@ public class Alvos {
         return posicoes;
     }
     
-    
+    @Override
+    public String toString(){
+        String str = "";
+        
+        for(String[] strV : posicoes){
+            for(String stri : strV){
+                str += " "+stri;
+            }
+        }
+        return str;
+    }
 }
