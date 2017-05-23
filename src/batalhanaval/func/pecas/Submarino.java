@@ -1,7 +1,6 @@
 
 package batalhanaval.func.pecas;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Submarino {
@@ -16,6 +15,8 @@ public class Submarino {
     
     private void initPecas(){
         Random aleatorio = new Random();
+        posY2 = 0;
+        posX2 = 0;
         //init sub1
         //random x random y random horizontal, vertical random esquerda, direita
         posX1 = aleatorio.nextInt(10);
@@ -25,14 +26,14 @@ public class Submarino {
         setSentidoDirecao(dir, sen);
         
         if(direcao == true){//vertical
-            if((sentido == true && posY1 != 0) || (posY1 == 9)){//cima
+            if((sentido == true && posY1 >= 1) || (posY1 == 9)){//cima
                 posY2 = posY1 - 1;
             }else{//baixo
                 posY2 = posY1 + 1;
             }
             posX2 = posX1;
         }else {//horizontal
-            if((sentido == true && posX1 != 0) || (posX1 == 9)){//direita
+            if((sentido == true && posX1 >= 1) || (posX1 == 9)){//direita
                 posX2 = posX1 - 1;
             }else{//esquerda
                 posX2 = posX1 + 1;
@@ -47,7 +48,6 @@ public class Submarino {
         for(int i = 2; i < posicoesSub.length; i ++){
             posicoesSub[i] = "";
         }
-//        Arrays.fill(posicoesSub, "");
     }
     
     private void setSentidoDirecao(int dir, int sen){

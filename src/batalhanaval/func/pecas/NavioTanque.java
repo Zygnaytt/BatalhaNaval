@@ -16,6 +16,12 @@ public class NavioTanque {
     
     private void initPecas(){
         Random aleatorio = new Random();
+        posY2 = 0;
+        posY3 = 0;
+        posY4 = 0;
+        posX2 = 0;
+        posX3 = 0;
+        posX4 = 0;
         //init sub1
         //random x random y random horizontal, vertical random esquerda, direita
         posX1 = aleatorio.nextInt(10);
@@ -25,7 +31,7 @@ public class NavioTanque {
         setSentidoDirecao(dir, sen);
         
         if(direcao == true){//vertical
-            if((sentido == true && posY1 != 0) || ((posY1 <= 9)&&(posY1 >= 7))
+            if((sentido == true && posY1 >= 3) || ((posY1 >= 7)&&(posY1 <= 9))
                     //|| (posY3 == 7)
                     ){//cima
                 posY2 = posY1 - 1;
@@ -40,7 +46,7 @@ public class NavioTanque {
             posX3 = posX2;
             posX4 = posX3;
         }else {//horizontal
-            if((sentido == true && posX1 != 0) || ((posX1 <= 9)&&(posX1 >= 7))
+            if((sentido == true && posX1 >= 3) || ((posX1 >= 7)&&(posX1 <= 9))
                     //|| (posX2 == 8)|| (posX3 == 7)
                     ){//direita
                 posX2 = posX1 - 1;

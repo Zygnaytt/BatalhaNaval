@@ -26,6 +26,7 @@ public class Tabuleiro {
     
     public Tabuleiro(){
         btnns.setTabuleiro(this);
+        gr.setTabuleiro(this);
         initTabuleiro1();
         initTabuleiroIA();
     }
@@ -47,7 +48,6 @@ public class Tabuleiro {
                 ImageIcon icone = new ImageIcon(new BufferedImage(40, 40, BufferedImage.TYPE_INT_ARGB));
                 btn.setIcon(icone);
                 btn.setBackground(Color.WHITE);
-                //btn.setEnabled(false);
                 
                 bnQuadradinhos1[jj][ii] = btn;
                 
@@ -143,4 +143,14 @@ public class Tabuleiro {
     public JButton[][] getQuadradinhos2(){
         return bnQuadradinhosIA;
     }
+
+    public GerenciamentoDoJogo getGerenciamento() {
+        return gr;
+    }
+
+    public Botoes getBtnns() {
+        return btnns;
+    }
+    
+    
 }

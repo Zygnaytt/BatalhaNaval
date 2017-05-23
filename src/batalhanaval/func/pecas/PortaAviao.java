@@ -16,6 +16,14 @@ public class PortaAviao {
     
     private void initPecas(){
         Random aleatorio = new Random();
+        posY2 = 0;
+        posY3 = 0;
+        posY4 = 0;
+        posY5 = 0;
+        posX2 = 0;
+        posX3 = 0;
+        posX4 = 0;
+        posX5 = 0;
         //init sub1
         //random x random y random horizontal, vertical random esquerda, direita
         posX1 = aleatorio.nextInt(10);
@@ -25,7 +33,7 @@ public class PortaAviao {
         setSentidoDirecao(dir, sen);
         
         if(direcao == true){//vertical
-            if((sentido == true && posY1 != 0) || ((posY1 <= 9)&&(posY1 >= 6))
+            if((sentido == true && posY1 >= 4) || ((posY1 >= 6)&&(posY1 <= 9))
                     //|| (posY2 == 8)|| (posY3 == 7) || (posY4 == 6)
                     ){//cima
                 posY2 = posY1 - 1;
@@ -43,7 +51,7 @@ public class PortaAviao {
             posX4 = posX3;
             posX5 = posX4;
         }else {//horizontal
-            if((sentido == true && posX1 != 0) || ((posX1 <= 9)&&(posX1 >= 6))
+            if((sentido == true && posX1 >= 4) || ((posX1 <= 9)&&(posX1 >= 6))
                     //|| (posX2 == 8)|| (posX3 == 7) || (posX4 == 6)
                     ){//direita
                 posX2 = posX1 - 1;

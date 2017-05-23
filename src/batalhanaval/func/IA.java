@@ -6,10 +6,10 @@ public class IA {
     private final int[] posicao = new int[2];
     
     public IA(){
-        selecionarPosicao();
+        
     }
     
-    private int[] selecionarPosicao(){
+    public int[] selecionarPosicao(){
         Random rdm = new Random();
         posicao[0] = rdm.nextInt(10);
         posicao[1] = rdm.nextInt(10);
@@ -19,8 +19,7 @@ public class IA {
     
     @Override
     public String toString(){
-        String str = "";
-        str = Integer.toString(posicao[0])+"_"+Integer.toString(posicao[1]);
+        String str = Integer.toString(posicao[0])+"_"+Integer.toString(posicao[1]);
         return str;
     }
 }

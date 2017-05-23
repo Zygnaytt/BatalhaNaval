@@ -29,7 +29,7 @@ public class ContraTorpedeiro {
         setSentidoDirecao(dir, sen);
         
         if(direcao == true){//vertical
-            if((sentido == true && posY1 != 0) || ((posY1 <= 9)&&(posY1 >= 8))
+            if((sentido == true && posY1 >= 2) || ((posY1 <= 9)&&(posY1 >= 8))
                     //|| (posY2 == 8)
                     ){//cima
                 posY2 = posY1 - 1;
@@ -41,7 +41,7 @@ public class ContraTorpedeiro {
             posX2 = posX1;
             posX3 = posX2;
         }else {//horizontal
-            if((sentido == true && posX1 != 0) || ((posX1 <= 9)&&(posX1 >= 8))
+            if((sentido == true && posX1 >= 2) || ((posX1 <= 9)&&(posX1 >= 8))
                     //|| (posX2 == 8)
                     ){//direita
                 posX2 = posX1 - 1;
